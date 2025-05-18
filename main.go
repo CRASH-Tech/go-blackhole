@@ -27,7 +27,7 @@ func main() {
 
 	var processors []*feeds.Processor
 	for _, feedCfg := range cfg.Feeds {
-		p := feeds.NewProcessor(&feedCfg, bgpMgr)
+		p := feeds.NewProcessor(&feedCfg, bgpMgr, cfg)
 		go p.Start()
 		processors = append(processors, p)
 	}

@@ -29,12 +29,12 @@ type Processor struct {
 	stopChan  chan struct{}
 }
 
-func NewProcessor(cfg *config.FeedConfig, bgpMgr *bgp.BGPManager) *Processor {
+func NewProcessor(feed *config.FeedConfig, bgpMgr *bgp.BGPManager, cfg *config.Config) *Processor {
 	return &Processor{
-		fetcher:   NewFetcher(cfg.URL, 10*time.Second),
+		fetcher:   NewFetcher(feed.URL, 10*time.Second, cfg),
 		bgpMgr:    bgpMgr,
-		community: cfg.Community,
-		interval:  cfg.GetRefreshDuration(),
+		community: feed.Community,
+		interval:  feed.GetRefreshDuration(),
 		stopChan:  make(chan struct{}),
 	}
 }

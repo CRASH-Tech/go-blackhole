@@ -9,9 +9,10 @@ import (
 )
 
 type Config struct {
-	BGP   BGPConfig    `yaml:"bgp"`
-	Feeds []FeedConfig `yaml:"feeds"`
-	Web   WebConfig    `yaml:"web"`
+	BGP       BGPConfig    `yaml:"bgp"`
+	Feeds     []FeedConfig `yaml:"feeds"`
+	Web       WebConfig    `yaml:"web"`
+	Whitelist []string     `yaml:"whitelist"`
 }
 
 type BGPConfig struct {

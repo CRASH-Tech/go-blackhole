@@ -40,7 +40,7 @@ func NewProcessor(cfg *config.FeedConfig, bgpMgr *bgp.BGPManager) *Processor {
 }
 
 func (p *Processor) Start() {
-	log.Printf("Starting feed processor with interval %v", p.interval)
+	log.Printf("Starting feed processor for %s with interval %v", p.fetcher.URL, p.interval)
 	ticker := time.NewTicker(p.interval)
 	defer ticker.Stop()
 

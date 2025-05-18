@@ -30,7 +30,6 @@ func main() {
 		p := feeds.NewProcessor(&feedCfg, bgpMgr)
 		go p.Start()
 		processors = append(processors, p)
-		log.Printf("Started feed processor for %s", feedCfg.URL)
 	}
 
 	webServer := web.NewServer(bgpMgr)
